@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Arquivos enviados</h2>
+  <ul>
+    {% for f in files %}
+      <li><a href="{{ url_for('uploaded_file', filename=f) }}">{{ f }}</a></li>
+    {% else %}
+      <li>Nenhum arquivo enviado.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

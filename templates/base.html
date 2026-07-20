@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Amazonia Contratos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Amazonia Contratos</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Início</a> |
+        <a href="{{ url_for('upload') }}">Enviar arquivo</a> |
+        <a href="{{ url_for('list_uploads') }}">Arquivos</a>
+      </nav>
+      <hr>
+    </header>
+
+    <main>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for msg in messages %}
+              <li>{{ msg }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <hr>
+      <p>© {{ current_year if current_year else "2026" }} Amazônia Contratos</p>
+    </footer>
+  </body>
+</html>

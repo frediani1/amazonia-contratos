@@ -1,0 +1,6 @@
+Flask==2.3.2
+python-dotenv
+flask-cors
+pandas
+openpyxl
+mammoth
